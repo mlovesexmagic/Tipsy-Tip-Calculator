@@ -22,6 +22,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] Feeling Generous: random tip percentage that pass the good vibe around
+- [x] AA制：Split the bills between friends
 
 ## Video Walkthrough 
 
