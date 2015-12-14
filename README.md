@@ -1,4 +1,4 @@
-# Tipsy-Tip-Calculator# Pre-work - Tipsy
+# Tip CalCulator# Pre-work - Tipsy
 
 **Tipsy** is a tip calculator application for iOS.
 
@@ -21,7 +21,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Feeling Generous: random tip percentage that pass the good vibe around
 
 ## Video Walkthrough 
 
