@@ -10,30 +10,48 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    //import variable from settingsViewController
     @IBOutlet weak var slideMinVal: UITextField!
     @IBOutlet weak var slideMaxVal: UITextField!
     
+    //creates float variables
     var minimumSliderVal: Float!
     var maximumSliderVal: Float!
     
+    //an alert message variable
+    var alertController:UIAlertController?
+    
+    //userDefaults
     let userDefaults = NSUserDefaults.standardUserDefaults()
     
     @IBAction func save(sender: UIButton) {
- 
-// optional from CCSF walk through
+
+        //converting text fields string to Float values
         let minimumSliderVal =  NSString(string: slideMinVal.text!).floatValue
         let maximumSliderVal =  NSString(string: slideMaxVal.text!).floatValue
         
-        //*****************************
-        //setting new UISlider defaults
-        userDefaults.setFloat(minimumSliderVal, forKey: "minimum_sliderVal")
-        userDefaults.setFloat(maximumSliderVal, forKey: "maximum_sliderVal")
-        //*********************************
-        
-        //display text only amount % on setting page
-        userDefaults.setObject(slideMinVal.text, forKey: "minSlide")
-        userDefaults.setObject(slideMaxVal.text, forKey: "maxSlide")
-        userDefaults.synchronize()
+        if(minimumSliderVal < maximumSliderVal){
+            //setting new UISlider defaults
+            userDefaults.setFloat(minimumSliderVal, forKey: "minimum_sliderVal")
+            userDefaults.setFloat(maximumSliderVal, forKey: "maximum_sliderVal")
+            
+            //display string from text field amount % on setting page
+            userDefaults.setObject(slideMinVal.text, forKey: "minSlide")
+            userDefaults.setObject(slideMaxVal.text, forKey: "maxSlide")
+            userDefaults.synchronize()
+        }else{
+            let titleText = "Banananananananan"
+            let messageText = "Min % has to be less than Max %"
+            let okText = "OK"
+            
+            let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: UIAlertControllerStyle.Alert)
+            let okayButton = UIAlertAction(title: okText, style: UIAlertActionStyle.Cancel, handler: nil)
+            
+            alert.addAction(okayButton)
+            
+            presentViewController(alert, animated: true, completion: nil)
+        }
+    
 }
 
 
@@ -41,12 +59,12 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
+        //change the Global default to user input that we converted to float variables earlier
         let minSlide = userDefaults.stringForKey("minSlide")
-        
-        slideMinVal.text = minSlide
-        
         let maxSlide = userDefaults.stringForKey("maxSlide")
         
+        //displaying the user input on the text field
+        slideMinVal.text = minSlide
         slideMaxVal.text = maxSlide
     }
 
@@ -58,23 +76,5 @@ class SettingsViewController: UIViewController {
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
     }
-
-    @IBAction func onEditingSettingChanged(sender: AnyObject) {
-       
-        
-    }
-    
-
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -17,25 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        //CCSF walk through
+        //Creating Global Defaults
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let firstEverLoad = userDefaults.boolForKey("first_Ever_Load")
-
+        
+        //new max and min values set to new defaults
         userDefaults.floatForKey("minimum_sliderVal")
         userDefaults.floatForKey("maximum_sliderVal")
+        userDefaults.doubleForKey("tip_Percentage")
+        
+        let firstEverLoad = userDefaults.boolForKey("first_Ever_Load")
 
+        //App first ever load launched with following values as system default
         if(!firstEverLoad){
             userDefaults.setFloat(5.00, forKey: "minimum_sliderVal")
             userDefaults.setFloat(30.00, forKey: "maximum_sliderVal")
+            userDefaults.setDouble(15.00, forKey: "tip_Percentage")
             userDefaults.setBool(true, forKey: "first_Ever_Load")
             userDefaults.synchronize()
         }
-        
-        
-        
+
         return true
     }
 
+    
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
