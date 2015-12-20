@@ -176,8 +176,23 @@ class ViewController: UIViewController {
     func showHide() {
         if(getBillAmount() > 0){
             self.toolView.hidden = false
+
+            UIView.animateWithDuration(1.5, animations: {
+                self.toolView.alpha = 1.0
+                self.toolView.alpha = 1.0
+                self.toolView.alpha = 1.0
+            })
+            
+            
         }else{
             self.toolView.hidden = true
+
+            UIView.animateWithDuration(0, animations: {
+                self.toolView.alpha = 0
+                self.toolView.alpha = 0
+                self.toolView.alpha = 0
+            })
+            
         }
     }
     
