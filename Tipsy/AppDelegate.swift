@@ -23,18 +23,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //new max and min values set to new defaults
         userDefaults.floatForKey("minimum_sliderVal")
         userDefaults.floatForKey("maximum_sliderVal")
+        
+        //set global default percentage, purpose is for random % and fixed % calculation
         userDefaults.doubleForKey("tip_Percentage")
+        
+        //split with how many people? set the new min and max with this default
+        userDefaults.floatForKey("maximum_splitVal")
+        
+        
         
         let firstEverLoad = userDefaults.boolForKey("first_Ever_Load")
 
         //App first ever load launched with following values as system default
         if(!firstEverLoad){
-            userDefaults.setFloat(5.00, forKey: "minimum_sliderVal")
-            userDefaults.setFloat(30.00, forKey: "maximum_sliderVal")
+            userDefaults.setFloat(5.00, forKey: "minimum_sliderVal")        //minimum default 5%
+            userDefaults.setFloat(30.00, forKey: "maximum_sliderVal")       //maximum default 30%
             userDefaults.setDouble(15.00, forKey: "tip_Percentage")
-            userDefaults.setBool(true, forKey: "first_Ever_Load")
+            userDefaults.setFloat(15, forKey: "maximum_splitVal")           //max split default 15 people
+            userDefaults.setBool(true, forKey: "first_Ever_Load")           //load this entire block of codes if first time running the app before user change the setting
             userDefaults.synchronize()
-        }
+        }//once user edited the default settings, then the App will run the dynamic new setting the the above hardcoded defaults
 
         return true
     }

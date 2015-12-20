@@ -22,12 +22,13 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] Feeling Generous: random tip percentage that pass the good vibe around
+- [x] AA制：Split the bills between friends
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/v56FE2S.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/PRVRGyd.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
